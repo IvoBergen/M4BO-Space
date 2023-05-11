@@ -19,13 +19,26 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float move = Time.deltaTime * speed * Input.GetAxis("Vertical");
-        Vector3 lastVel = rb.velocity;
-        Vector3 newVel = rb.transform.forward * move;
-        newVel.y = lastVel.y;
-        rb.velocity = newVel;
-        float rot = Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
-        rb.transform.Rotate(new Vector3(0, rot, 0));
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.position += new Vector3(0, 0, 2) * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+
+            transform.position += new Vector3(0, 0, -2) * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+
+            transform.position += new Vector3(2, 0, 0) * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+
+            transform.position += new Vector3(-2, 0, 0) * Time.deltaTime;
+        }
 
         if (Input.GetKeyDown("w"))
         {
