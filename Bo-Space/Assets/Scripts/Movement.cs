@@ -6,8 +6,6 @@ public class Movement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
-
-    public float groundDrag;
     public bool isMoving;
     public int sprint = 20;
 
@@ -35,12 +33,6 @@ public class Movement : MonoBehaviour
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down , playerHeight * 0.5f + 0.2f, whatIsGround);
         MyInput();
-
-        //handle drag
-        if (grounded)
-            rb.drag = groundDrag;
-        else
-            rb.drag = 0;
     }
 
     private void FixedUpdate()
@@ -48,8 +40,8 @@ public class Movement : MonoBehaviour
 
         MovePlayer();
 
-        if (Input.GetKeyDown("w"))
-       {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
             isMoving = true;
         }
         if (Input.GetKeyUp("w"))
@@ -58,7 +50,8 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftShift) & isMoving == true)
         {
-            transform.position += transform.forward * Time.deltaTime * sprint;
+            moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput * sprint;
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         }
 
     }
