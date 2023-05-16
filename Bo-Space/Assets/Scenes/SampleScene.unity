@@ -1701,8 +1701,8 @@ Rigidbody:
   m_GameObject: {fileID: 1469285696}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 5
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -1738,8 +1738,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8080a2f5e4f24db439181ce185e12e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
-  groundDrag: 20
+  moveSpeed: 20
+  isMoving: 0
+  sprint: 20
   playerHeight: 3
   whatIsGround:
     serializedVersion: 2
