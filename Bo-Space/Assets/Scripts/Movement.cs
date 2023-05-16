@@ -6,7 +6,8 @@ public class Movement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
-
+    public int sprint = 20;
+    public bool isMoving = false;
     public float groundDrag;
 
     [Header("Ground Check")]
@@ -43,7 +44,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-<<<<<<< HEAD
+
         MovePlayer();
         if (Input.GetKey(KeyCode.A))
         {
@@ -78,7 +79,7 @@ public class Movement : MonoBehaviour
         {
             transform.position += transform.forward * Time.deltaTime * sprint;
         }
->>>>>>> d9d9aaae23c1982c527c2f9dcfeb69114f343eb6
+
     }
     private void MyInput()
     {
