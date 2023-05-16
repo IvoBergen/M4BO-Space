@@ -43,7 +43,42 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+<<<<<<< HEAD
         MovePlayer();
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.position += new Vector3(0, 0, 2) * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+
+            transform.position += new Vector3(0, 0, -2) * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+
+            transform.position += new Vector3(2, 0, 0) * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+
+            transform.position += new Vector3(-2, 0, 0) * Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown("w"))
+        {
+            isMoving = true;
+        }
+        if (Input.GetKeyUp("w"))
+        {
+            isMoving = false;
+        }
+        if (Input.GetKey(KeyCode.LeftShift) & isMoving == true) 
+        {
+            transform.position += transform.forward * Time.deltaTime * sprint;
+        }
+>>>>>>> d9d9aaae23c1982c527c2f9dcfeb69114f343eb6
     }
     private void MyInput()
     {
