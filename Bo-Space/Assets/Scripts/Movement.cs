@@ -6,8 +6,6 @@ public class Movement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
-    public int sprint = 20;
-    public bool isMoving = false;
     public float groundDrag;
     public bool isMoving;
     public int sprint = 20;
@@ -61,10 +59,7 @@ public class Movement : MonoBehaviour
         {
             transform.position += transform.forward * Time.deltaTime * sprint;
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> 2417e3f26eb838eb84e6b1a71cd2bfd4c97347c0
     }
     private void MyInput()
     {
