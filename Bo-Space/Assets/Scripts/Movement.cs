@@ -4,40 +4,57 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] internal float speed = 1600f;
-    [SerializeField] internal float rotSpeed = 100f;
-    public float sprint = 25f;
-    private Rigidbody rb;
-    public bool isMoving = false;
+    [Header("Movement")]
+    public float moveSpeed;
 
-    // Start is called before the first frame update
-    void Start()
+    public float groundDrag;
+
+    [Header("Ground Check")]
+    public float playerHeight;
+    public LayerMask whatIsGround;
+    bool grounded;
+
+    float horizontalInput;
+    float verticalInput;
+
+    public Transform orientation;
+
+    Vector3 moveDirection;
+
+    Rigidbody rb;
+
+    private void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+    }
+    private void Update()
+    {
+        // ground check
+        grounded = Physics.Raycast(transform.position, Vector3.down , playerHeight * 0.5f + 0.2f, whatIsGround);
+        MyInput();
+
+        //handle drag
+        if (grounded)
+            rb.drag = groundDrag;
+        else
+            rb.drag = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        float move = Time.deltaTime * speed * Input.GetAxis("Vertical");
-        Vector3 lastVel = rb.velocity;
-        Vector3 newVel = rb.transform.forward * move;
-        newVel.y = lastVel.y;
-        rb.velocity = newVel;
-        float rot = Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
-        rb.transform.Rotate(new Vector3(0, rot, 0));
-
-        if (Input.GetKeyDown("w"))
-        {
-            isMoving = true;
-        }
-        if (Input.GetKeyUp("w"))
-        {
-            isMoving = false;
-        }
-        if (Input.GetKey(KeyCode.LeftShift) & isMoving == true) 
-        {
-            transform.position += transform.forward * Time.deltaTime * sprint;
-        }
+        MovePlayer();
     }
+    private void MyInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+    }
+    private void MovePlayer()
+    {
+        // calculate movement direction
+        moveDirection = orientation.forward* verticalInput + orientation.right * horizontalInput;
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+    }
+
 }
