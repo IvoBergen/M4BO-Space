@@ -9,6 +9,8 @@ public class Movement : MonoBehaviour
     public int sprint = 20;
     public bool isMoving = false;
     public float groundDrag;
+    public bool isMoving;
+    public int sprint = 20;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -46,40 +48,23 @@ public class Movement : MonoBehaviour
     {
 
         MovePlayer();
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position += new Vector3(0, 0, 2) * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-
-            transform.position += new Vector3(0, 0, -2) * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-
-            transform.position += new Vector3(2, 0, 0) * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-
-            transform.position += new Vector3(-2, 0, 0) * Time.deltaTime;
-        }
 
         if (Input.GetKeyDown("w"))
-        {
+       {
             isMoving = true;
         }
         if (Input.GetKeyUp("w"))
         {
             isMoving = false;
         }
-        if (Input.GetKey(KeyCode.LeftShift) & isMoving == true) 
+        if (Input.GetKey(KeyCode.LeftShift) & isMoving == true)
         {
             transform.position += transform.forward * Time.deltaTime * sprint;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2417e3f26eb838eb84e6b1a71cd2bfd4c97347c0
     }
     private void MyInput()
     {
