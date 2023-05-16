@@ -55,6 +55,7 @@ public class Movement : MonoBehaviour
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput * sprint;
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         }
+
     }
     private void MyInput()
     {
