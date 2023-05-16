@@ -6,10 +6,7 @@ public class Movement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
-<<<<<<< HEAD
-=======
 
->>>>>>> d050c3e9eb75e47697e498c834da8e847640d675
     public float groundDrag;
     public bool isMoving;
     public int sprint = 20;
