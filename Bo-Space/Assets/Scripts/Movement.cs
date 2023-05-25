@@ -6,8 +6,6 @@ public class Movement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
-
-
     public bool isMoving;
     public int sprint = 20;
 
@@ -42,14 +40,15 @@ public class Movement : MonoBehaviour
 
         MovePlayer();
 
-        if (Input.GetKeyDown("w"))
-       {
+        if (Input.GetKey(KeyCode.W))
+        {
             isMoving = true;
         }
-        if (Input.GetKeyUp("w"))
+        else
         {
             isMoving = false;
         }
+
         if (Input.GetKey(KeyCode.LeftShift) & isMoving == true)
         {
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput * sprint;
