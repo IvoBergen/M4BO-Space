@@ -40,14 +40,15 @@ public class Movement : MonoBehaviour
 
         MovePlayer();
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             isMoving = true;
         }
-        if (Input.GetKeyUp("w"))
+        else
         {
             isMoving = false;
         }
+
         if (Input.GetKey(KeyCode.LeftShift) & isMoving == true)
         {
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput * sprint;

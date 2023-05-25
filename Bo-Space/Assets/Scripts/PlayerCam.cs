@@ -6,6 +6,7 @@ public class PlayerCam : MonoBehaviour
 {
     public float SensY;
     public float SensX;
+    public bool locked;
 
     public Transform orientation;
 
@@ -19,16 +20,21 @@ public class PlayerCam : MonoBehaviour
     }
     private void Update()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * SensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * SensY;
+        if (locked == false)
+        {
+            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * SensX;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * SensY;
 
-        yRotation += mouseX;
+            yRotation += mouseX;
 
-        xRotation -= mouseY;
+            xRotation -= mouseY;
 
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+
+        }
+
     }
 }

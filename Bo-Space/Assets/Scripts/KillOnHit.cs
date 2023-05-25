@@ -5,8 +5,10 @@ using UnityEngine;
 public class KillOnHit : MonoBehaviour
 {
     public string TargetTag;
+    
     void Start()
     {
+      
 
     }
 
@@ -16,11 +18,13 @@ public class KillOnHit : MonoBehaviour
         
     }
 
-    private void onColissionEnter (Collision coll)
+   
+    private void OnCollisionEnter (Collision coll)
     {
         if (coll.gameObject.tag == TargetTag)
         {
-            Destroy(coll.gameObject, 0.1f);
+            GameObject.Find("PlayerCam").GetComponent<PlayerCam>().locked = true;
+            coll.gameObject.SetActive(false);
         }
     }
 }
