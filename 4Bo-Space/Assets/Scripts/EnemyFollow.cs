@@ -15,17 +15,31 @@ public class EnemyFollow : MonoBehaviour
     bool walkPointSet;
     public float walkPointRange;
 
-    //states
-    public float sightRange;
-    public bool playerInSightRange;
-
+    private void Start()
+    {
+       
+    }
     private void Update()
     {
-        //check for sight
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        if (!playerInSightRange) Patroling();
-        if (playerInSightRange) ChasePlayer();
-    
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Player.position, out hit))
+        {
+            if (hit.collider.name == "Player")
+            {
+                agent.SetDestination(Player.transform.position);
+            }
+            else
+            {
+                Patroling();
+            }
+        }
+        else
+        {
+           
+            Patroling();
+        }
+
+
     }
 
     private void Awake()
@@ -35,11 +49,14 @@ public class EnemyFollow : MonoBehaviour
     }
     private void Patroling()
     {
+        Debug.Log("Patroling");
         if (!walkPointSet) SearchWalkPoint();
 
-        if (walkPointSet)
-            agent.SetDestination(walkPoint);
+     
+            
+
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
+        //Debug.Log(distanceToWalkPoint.magnitude);
 
         //Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
@@ -50,14 +67,13 @@ public class EnemyFollow : MonoBehaviour
         // Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
+        Debug.Log("walkpoint");
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y,transform.position.z + randomZ);
-
+        Debug.Log(-transform.up);
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
+            agent.SetDestination(walkPoint);
     }
-    private void ChasePlayer()
-    {
-        agent.SetDestination(Player.position);
-    }
+ 
 }
