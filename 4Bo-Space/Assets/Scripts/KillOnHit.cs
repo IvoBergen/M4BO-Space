@@ -19,7 +19,7 @@ public class KillOnHit : MonoBehaviour
     }
 
    
-    private void OnCollisionEnter (Collision coll)
+    private void OnCollisonEnter (Collision coll)
     {
         if (coll.gameObject.tag == TargetTag)
         {
@@ -27,4 +27,5 @@ public class KillOnHit : MonoBehaviour
             coll.gameObject.SetActive(false);
         }
     }
+   
 }
