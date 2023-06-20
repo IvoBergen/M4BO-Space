@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class Movement : MonoBehaviour
 
     float horizontalInput;
     float verticalInput;
+    public bool isSprinting;
+    public float stamina;
+
 
     public Transform orientation;
 
@@ -49,10 +53,19 @@ public class Movement : MonoBehaviour
             isMoving = false;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) & isMoving == true)
+        if (Input.GetKey(KeyCode.LeftShift) & isMoving == true) //sprint function
         {
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput * sprint;
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        }
+
+        if ((isMoving) & (Input.GetKey(KeyCode.LeftShift) == true)) //checks if the player is suing sprint
+        {
+            isSprinting = true;
+        }
+        else 
+        {
+            isSprinting = false;
         }
 
     }
