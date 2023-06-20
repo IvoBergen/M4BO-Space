@@ -123,7 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< HEAD
 --- !u!1 &72290733
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,11 +171,8 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-<<<<<<< HEAD
   m_IsActive: 0
-=======
   m_IsActive: 1
->>>>>>> 84bee95a70b1f1ce8d7cb557b34e8d7346d07ba4
 --- !u!54 &181083512
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -231,7 +227,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &362519732
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,10 +328,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
-=======
->>>>>>> 84bee95a70b1f1ce8d7cb557b34e8d7346d07ba4
-=======
->>>>>>> logbooks
 --- !u!1 &758787601
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,15 +381,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-<<<<<<< HEAD
-<<<<<<< HEAD
   - {fileID: 2100000, guid: 5df052ad38827aa43a569c2b7b6ac650, type: 2}
-=======
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
->>>>>>> 84bee95a70b1f1ce8d7cb557b34e8d7346d07ba4
-=======
   - {fileID: 2100000, guid: 5df052ad38827aa43a569c2b7b6ac650, type: 2}
->>>>>>> logbooks
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -572,12 +557,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
 --- !u!1 &907106306
-=======
 --- !u!1 &955808873
->>>>>>> logbooks
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -585,37 +566,30 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 907106309}
   - component: {fileID: 907106308}
   - component: {fileID: 907106307}
   m_Layer: 0
   m_Name: EventSystem
-=======
   - component: {fileID: 955808874}
   - component: {fileID: 955808876}
   - component: {fileID: 955808875}
   m_Layer: 5
   m_Name: Panel
->>>>>>> logbooks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-<<<<<<< HEAD
   m_IsActive: 1
 --- !u!114 &907106307
 MonoBehaviour:
-=======
   m_IsActive: 0
 --- !u!224 &955808874
 RectTransform:
->>>>>>> logbooks
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 907106306}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -651,21 +625,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907106306}
-=======
   m_GameObject: {fileID: 955808873}
->>>>>>> logbooks
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-<<<<<<< HEAD
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> 84bee95a70b1f1ce8d7cb557b34e8d7346d07ba4
-=======
   m_Children:
   - {fileID: 1381182959}
   - {fileID: 1824375242}
@@ -715,7 +683,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955808873}
   m_CullTransparentMesh: 1
->>>>>>> logbooks
 --- !u!1 &1023887046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,25 +1164,18 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 1406944711}
   - component: {fileID: 1406944710}
   - component: {fileID: 1406944709}
-<<<<<<< HEAD
   - component: {fileID: 1406944712}
-=======
->>>>>>> 84bee95a70b1f1ce8d7cb557b34e8d7346d07ba4
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-<<<<<<< HEAD
   m_IsActive: 0
-=======
   m_IsActive: 1
->>>>>>> 84bee95a70b1f1ce8d7cb557b34e8d7346d07ba4
 --- !u!81 &1406944709
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1282,7 +1242,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!114 &1406944712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,8 +1348,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014992015}
   m_CullTransparentMesh: 1
-=======
->>>>>>> 84bee95a70b1f1ce8d7cb557b34e8d7346d07ba4
 --- !u!1 &2106618252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,13 +1362,11 @@ GameObject:
   - component: {fileID: 2106618254}
   m_Layer: 0
   m_Name: PlayerObj
-=======
   - component: {fileID: 2092899724}
   - component: {fileID: 2092899723}
   - component: {fileID: 2092899722}
   m_Layer: 0
   m_Name: EventSystem
->>>>>>> logbooks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
