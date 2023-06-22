@@ -3,43 +3,74 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Networking;
+using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyFollow : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform Player;
     public LayerMask whatIsGround, whatIsPlayer;
+    public bool followPlayer;
 
     //patroling
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
 
-    private void Start()
+    private bool followStatus = true;
+    public bool FollowStatus {
+        set
+        {
+            followStatus = value;
+            agent.isStopped = !followStatus;
+        }
+    }
+
+    public void setFollowing(bool followStatus)
     {
        
     }
-    private void Update()
+    /*private void OnDrawGizmos()
     {
+        Vector3 moving = transform.position;        
+        moving.y -= 1;
+        Gizmos.color = Color.blue;
+        Vector3 direction = Player.position;// transform.TransformDirection(Vector3.forward) * 5;
+        Gizmos.DrawRay(moving, direction-moving);
+    }*/
+    public void Update()
+    {
+       
+        // Draws a blue line from this transform to the target
+        Vector3 moving = transform.position; 
+        moving.y -= 1;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Player.position, out hit))
+        if (followStatus)
         {
-            if (hit.collider.name == "Player")
+            if (Physics.Raycast(moving, Player.position - moving, out hit))
             {
-                agent.SetDestination(Player.transform.position);
+
+                if (hit.collider.name == "PlayerObj")
+                {
+                    agent.SetDestination(Player.position);
+                    followPlayer = true;
+                }
+                else if (hit.collider.name != "PlayerObj")
+                {
+                    if (followPlayer)
+                    {
+                        SearchWalkPoint();
+                    }
+                    Patroling();
+                }
             }
             else
             {
                 Patroling();
             }
         }
-        else
-        {
-           
-            Patroling();
-        }
-
-
     }
 
     private void Awake()
@@ -49,31 +80,37 @@ public class EnemyFollow : MonoBehaviour
     }
     private void Patroling()
     {
-        Debug.Log("Patroling");
-        if (!walkPointSet) SearchWalkPoint();
 
+        if (!walkPointSet)
+        {
+            SearchWalkPoint();
+        }
      
             
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
-        //Debug.Log(distanceToWalkPoint.magnitude);
 
         //Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
+        {
             walkPointSet = false;
+        }
     }
+
     private void SearchWalkPoint()
     {
         // Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
-        Debug.Log("walkpoint");
 
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y,transform.position.z + randomZ);
-        Debug.Log(-transform.up);
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        if (Physics.Raycast(walkPoint, -transform.up, 10f, whatIsGround))
+        {
             walkPointSet = true;
             agent.SetDestination(walkPoint);
+            followPlayer = false;
+        }
+            
     }
  
 }
