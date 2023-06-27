@@ -28,7 +28,7 @@ public class KillOnHit : MonoBehaviour
         Debug.Log(coll.gameObject.tag);
         if (coll.gameObject.tag == TargetTag)
         {
-            
+            GameObject.Find("PlayerCam").GetComponent<PlayerCam>().xRotation = -29;
             GameObject.Find("PlayerCam").GetComponent<PlayerCam>().locked = true;
             coll.gameObject.SetActive(false);
             panelGameOver.SetActive(true);

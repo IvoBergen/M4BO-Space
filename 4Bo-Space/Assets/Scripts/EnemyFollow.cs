@@ -16,7 +16,7 @@ public class EnemyFollow : MonoBehaviour
 
     //patroling
     public Vector3 walkPoint;
-    bool walkPointSet;
+    internal bool walkPointSet;
     public float walkPointRange;
 
     private bool followStatus = true;
@@ -54,7 +54,7 @@ public class EnemyFollow : MonoBehaviour
 
                 if (hit.collider.name == "PlayerObj")
                 {
-                    agent.SetDestination(Player.position);
+                    agent.SetDestination(Player.position) ;
                     followPlayer = true;
                 }
                 else if (hit.collider.name != "PlayerObj")
