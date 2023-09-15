@@ -1,36 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class StartText : MonoBehaviour
 {
-    public GameObject startPanel;
-    public GameObject startClick;
-    public GameObject startClick2;
-    public GameObject startText;
-    public GameObject startText2;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public List<GameObject> objectList = new List<GameObject>();
+  
+    private int state = 0;
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Escape)) 
-        { 
-            startClick.SetActive(false);
-            startText.SetActive(false);
-            startText2.SetActive(true);
-            startClick2.SetActive(true);
-        }
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && state < 3)
         {
-            startPanel.SetActive(false);
-            startClick2.SetActive(false);
-            startText2.SetActive(false);
+            if(state == 0) 
+            {
+                objectList[2].SetActive(false);
+                objectList[3].SetActive(true);
+            }
+            if(state == 1) 
+            {
+                objectList[3].SetActive(false);
+                objectList[4].SetActive(true);
+            }
+            if(state == 2)
+            {
+                objectList[0].SetActive(false);
+                objectList[1].SetActive(false);
+                objectList[4].SetActive(false);
+            }
+            state++;
         }
     }
 }
