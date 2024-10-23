@@ -7,6 +7,7 @@ https://trello.com/b/YdLfwYNr/m4bo
 A first-person horror game in which you search for a way to escape from Skylab station while being hunted by an unknown creature. You can interact with certain objects and try to evade the monster.
 
 
+![Image van het startScherm](4Bo-Space/Assets/Pictures/StartScreenBackground.png)
 
 ## Highlighted Scripts
 [Enemy Follow Script](4Bo-Space/Assets/Scripts/EnemyFollow.cs)
