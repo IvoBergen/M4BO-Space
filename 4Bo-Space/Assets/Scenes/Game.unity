@@ -7529,11 +7529,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2347bad0d7c624db06671254c01d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPanel: {fileID: 260422541}
-  startClick: {fileID: 1447650705}
-  startText: {fileID: 1695439264}
-  startText2: {fileID: 1898703649}
-  startText3: {fileID: 1668979915}
+  objectList:
+  - {fileID: 260422541}
+  - {fileID: 1447650705}
+  - {fileID: 1695439264}
+  - {fileID: 1898703649}
+  - {fileID: 1668979915}
 --- !u!114 &948084507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14069,7 +14070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1160234426
 MonoBehaviour:
   m_ObjectHideFlags: 0
