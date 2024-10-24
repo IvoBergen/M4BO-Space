@@ -9,20 +9,6 @@ public class KillOnHit : MonoBehaviour
 {
     public string TargetTag;
     public GameObject panelGameOver;
-
-    void Start()
-    {
-      
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-   
     private void OnTriggerEnter (Collider coll)
     {
         Debug.Log(coll.gameObject.tag);

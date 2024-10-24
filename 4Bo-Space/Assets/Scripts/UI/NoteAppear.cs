@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class NoteAppear : MonoBehaviour
 {
-    
     public GameObject panelText;
     public GameObject paperImage;
     [SerializeField]
@@ -20,17 +19,8 @@ public class NoteAppear : MonoBehaviour
             panelText.SetActive(true);
             paperImage.SetActive(true);
             follow.FollowStatus = false;
-            
         }
-        
-        
     }
-
-    private void Update()
-    {
-       
-    }
-
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

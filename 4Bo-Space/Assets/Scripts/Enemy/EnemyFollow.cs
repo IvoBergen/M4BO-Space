@@ -14,6 +14,9 @@ public class EnemyFollow : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
     public bool followPlayer;
 
+    //Monstersounds
+    public AudioSource monsterScream;
+
     //patroling
     public Vector3 walkPoint;
     internal bool walkPointSet;
@@ -56,6 +59,7 @@ public class EnemyFollow : MonoBehaviour
                 {
                     agent.SetDestination(Player.position) ;
                     followPlayer = true;
+                    monsterScream.Play();
                 }
                 else if (hit.collider.name != "PlayerObj")
                 {
